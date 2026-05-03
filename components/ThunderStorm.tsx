@@ -19,7 +19,7 @@ export default function ThunderStorm() {
     let boltOpacity = 1;
     let segments: { x1: number; y1: number; x2: number; y2: number }[] = [];
 
-    function generateLightning(x: number, y: number, angle: number, length: number, depth: number) {
+    function generateLightning(x: number, y: number, angle: number, length: number, depth: number, maxHeight: number) {
       const result: typeof segments = [];
       let cx = x, cy = y;
       for (let i = 0; i < 14; i++) {
@@ -29,10 +29,10 @@ export default function ThunderStorm() {
         const ny = cy + Math.cos(angle * Math.PI / 180) * segLen;
         result.push({ x1: cx, y1: cy, x2: nx, y2: ny });
         cx = nx; cy = ny;
-        if (cy > canvas.height) break;
+        if (cy > maxHeight) break;
         if (depth > 0 && Math.random() > 0.6) {
           const branchAngle = angle + (Math.random() - 0.5) * 45;
-          result.push(...generateLightning(cx, cy, branchAngle, segLen * 0.5, depth - 1));
+          result.push(...generateLightning(cx, cy, branchAngle, segLen * 0.5, depth - 1, maxHeight));
         }
       }
       return result;
@@ -41,7 +41,7 @@ export default function ThunderStorm() {
     // Strike once after short delay
     setTimeout(() => {
       const x = canvas.width * (0.3 + Math.random() * 0.4);
-      segments = generateLightning(x, 0, (Math.random() - 0.5) * 15, 40, 3);
+      segments = generateLightning(x, 0, (Math.random() - 0.5) * 15, 40, 3, canvas.height);
       flashOpacity = 0.7;
 
       function draw() {
