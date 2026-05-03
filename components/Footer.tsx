@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Share2, Camera, Briefcase, Bird } from "lucide-react";
+import { Phone, Mail, MapPin, Camera, Briefcase, Bird } from "lucide-react";
 import { FIRM_NAME, FIRM_EMAIL, FIRM_PHONE, FIRM_ADDRESS, SERVICES } from "@/lib/constants";
-import VisitorCounter from "./VisitorCounter";
+import ShareButton from "./ShareButton";
 
 export default function Footer() {
   return (
@@ -21,11 +21,12 @@ export default function Footer() {
             </div>
             <p className="text-sm text-gray-400 mb-4">Providing professional financial and compliance services with integrity and excellence since 2009.</p>
             <div className="flex gap-3">
-              {[Share2, Camera, Briefcase, Bird].map((Icon, i) => (
+              {[Camera, Briefcase, Bird].map((Icon, i) => (
                 <a key={i} href="#" className="w-9 h-9 rounded-full bg-gray-800 hover:bg-yellow-500 flex items-center justify-center transition-colors">
                   <Icon size={16} />
                 </a>
               ))}
+              <ShareButton />
             </div>
           </div>
 
@@ -80,9 +81,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-gray-800 py-4 text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 gap-2">
-        <span>Copyright © {new Date().getFullYear()} {FIRM_NAME}. All rights reserved.</span>
-        <VisitorCounter />
+      <div className="border-t border-gray-800 py-4 text-center text-sm text-gray-500">
+        Copyright © {new Date().getFullYear()} {FIRM_NAME}. All rights reserved.
       </div>
     </footer>
   );

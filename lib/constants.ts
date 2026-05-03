@@ -3,7 +3,7 @@ export const FIRM_NAME = "PRG & Associates";
 export const FIRM_TAGLINE = "Your Trusted Financial Partner";
 export const FIRM_EMAIL = "prgtax@gmail.com";
 export const FIRM_PHONE = "+91 80901 91817";
-export const FIRM_ADDRESS = "Nishatganj, Lucknow";
+export const FIRM_ADDRESS = "Nishatganj, Lucknow, Uttar Pradesh";
 
 export const SERVICES = [
   {
