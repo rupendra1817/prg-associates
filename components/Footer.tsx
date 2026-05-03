@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Camera, Briefcase, Bird } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
 import { FIRM_NAME, FIRM_EMAIL, FIRM_PHONE, FIRM_ADDRESS, SERVICES } from "@/lib/constants";
 import ShareButton from "./ShareButton";
 
@@ -7,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -54,6 +55,15 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* QR Code */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Scan to Visit</h3>
+            <div className="bg-white p-2 rounded-lg inline-block">
+              <QRCodeSVG value="https://prgassociates.vercel.app" size={100} />
+            </div>
+            <p className="text-xs text-gray-400 mt-2">Scan QR to open website</p>
           </div>
 
           {/* Contact */}
