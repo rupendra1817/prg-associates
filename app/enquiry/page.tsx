@@ -1,4 +1,5 @@
 import EnquiryForm from "@/components/EnquiryForm";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { MessageCircle, Clock, CheckCircle } from "lucide-react";
 
 export default function EnquiryPage() {
@@ -45,7 +46,7 @@ export default function EnquiryPage() {
               </div>
               <p className="text-gray-600 text-sm mb-4">Skip the form and chat with us directly on WhatsApp for instant assistance.</p>
               <a
-                href="https://wa.me/919876543210?text=Hello!%20I%20need%20CA%20services%20consultation."
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello!%20I%20need%20CA%20services%20consultation.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all"
