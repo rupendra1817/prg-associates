@@ -8,7 +8,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PRG Associates | Chartered Accountants",
+  title: "PRG Associates",
   description: "Professional CA services - GST, ITR, Company Registration, Food License, FSSAI, Trademark and more.",
   keywords: "CA firm, GST registration, ITR filing, company registration, food license, chartered accountant",
   icons: {
