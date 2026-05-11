@@ -6,10 +6,9 @@ export default function StatsSection() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
 
   useEffect(() => {
-    const stored = localStorage.getItem("siteVisitors");
-    const next = stored ? parseInt(stored) + 1 : 1000;
-    localStorage.setItem("siteVisitors", String(next));
-    setVisitorCount(next);
+    fetch("/api/visitors", { method: "POST" })
+      .then((r) => r.json())
+      .then((d) => setVisitorCount(d.count));
   }, []);
 
   return (
