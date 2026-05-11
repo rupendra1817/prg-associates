@@ -115,7 +115,7 @@ export default function Hero() {
 
           {/* Right - Enquiry Form */}
           <div className="glass rounded-3xl p-6 sm:p-8">
-            <h2 className="text-white text-2xl font-bold mb-2">Get Free Consultation</h2>
+            <h2 className="text-white text-2xl font-bold mb-2">Get Expert Consultation</h2>
             <p className="text-gray-400 text-sm mb-6">Fill the form and we'll reach you on WhatsApp instantly.</p>
             <EnquiryForm compact dark />
           </div>
