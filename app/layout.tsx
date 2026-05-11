@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "PRG Associates | Chartered Accountants",
   description: "Professional CA services - GST, ITR, Company Registration, Food License, FSSAI, Trademark and more.",
   keywords: "CA firm, GST registration, ITR filing, company registration, food license, chartered accountant",
+  icons: {
+    icon: "/PRG-LOGO.png",
+    shortcut: "/PRG-LOGO.png",
+    apple: "/PRG-LOGO.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
