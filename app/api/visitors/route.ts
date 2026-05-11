@@ -1,26 +1,17 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { Redis } from "@upstash/redis";
 
-const filePath = path.join(process.cwd(), "data", "visitors.json");
-
-function getCount(): number {
-  if (!fs.existsSync(filePath)) {
-    fs.mkdirSync(path.dirname(filePath), { recursive: true });
-    fs.writeFileSync(filePath, JSON.stringify({ count: 1000 }));
-    return 1000;
-  }
-  const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  return data.count ?? 1000;
-}
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
 export async function GET() {
-  const count = getCount();
+  const count = (await redis.get<number>("visitor_count")) ?? 0;
   return NextResponse.json({ count });
 }
 
 export async function POST() {
-  const count = getCount() + 1;
-  fs.writeFileSync(filePath, JSON.stringify({ count }));
+  const count = await redis.incr("visitor_count");
   return NextResponse.json({ count });
 }

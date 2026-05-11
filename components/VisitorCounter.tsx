@@ -5,7 +5,7 @@ export default function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("/api/visitors")
+    fetch("/api/visitors", { method: "POST" })
       .then((r) => r.json())
       .then((d) => setCount(d.count));
   }, []);
