@@ -6,7 +6,9 @@ export default function StatsSection() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("/api/visitors", { method: "POST" })
+    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+    const method = isLocalhost ? "GET" : "POST";
+    fetch("/api/visitors", { method })
       .then((r) => r.json())
       .then((d) => setVisitorCount(d.count));
   }, []);
